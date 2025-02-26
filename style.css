@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20px, max-content)); /* Adjust period symbol spacing */
+    grid-template-columns: repeat(auto-fill, minmax(min-content, max-content)); /* Adjust to min-content and max-content */
     gap: 10px; /* Space between period symbols */
     padding: 20px;
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Modern sans-serif font */
@@ -24,6 +24,7 @@
     cursor: pointer;
     border-radius: 5px; /* Optional: rounded corners for title box */
     display: inline-block; /* Make title boxes inline-block */
+    white-space: nowrap; /* Prevent title text from wrapping within the box */
 }
 
 

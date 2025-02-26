@@ -1,6 +1,6 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min-content, max-content)); /* Adjust to min-content and max-content */
+    display: flex; /* Use flexbox layout */
+    flex-wrap: wrap; /* Enable wrapping to the next line */
     gap: 10px; /* Space between period symbols */
     padding: 20px;
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Modern sans-serif font */
@@ -13,8 +13,8 @@
     font-size: 20px; /* Adjust period size */
     line-height: 1; /* Adjust line height for vertical centering */
     color: #888; /* Grey color for period symbol */
-    display: inline-block; /* Ensure it behaves like inline for horizontal flow */
-    width: 20px; /* Set a fixed width for each period symbol */
+    display: inline-block; /* Keep inline-block for spacing and styling */
+    width: 20px; /* Set a fixed width for each period symbol for consistent spacing */
 }
 
 .day-title {

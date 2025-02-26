@@ -17,8 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     function generateDays(daysData) {
-        const startDate = new Date(new Date().getFullYear(), 0, 1); // January 1st of current year
-        const endDate = new Date(); // Today
+        // Determine start and end dates from daysData keys
+        const dates = Object.keys(daysData);
+        if (dates.length === 0) {
+            return; // No data to display
+        }
+
+        const sortedDates = dates.sort();
+        const startDate = new Date(sortedDates[0]);
+        const endDate = new Date(sortedDates[sortedDates.length - 1]);
+
+        // Ensure the range includes at least the current date if later than data dates
+        const today = new Date();
+        if (endDate < today) {
+            endDate = today;
+        }
+
+
         const timeDiff = endDate.getTime() - startDate.getTime();
         const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 

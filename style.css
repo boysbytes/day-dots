@@ -1,6 +1,7 @@
 body {
     margin: 0; /* Reset default body margin */
     padding: 0; /* Reset default body padding */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
 
 header {
@@ -8,6 +9,7 @@ header {
     padding: 20px;
     background-color: #f0f0f0; /* Light grey background for header */
     border-bottom: 1px solid #ccc; /* Bottom border for header */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
 
 header h1 {
@@ -23,6 +25,7 @@ header p {
 header a {
     color: #007BFF; /* Example link color */
     text-decoration: none;
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
 
 header a:hover {
@@ -35,7 +38,7 @@ header a:hover {
     flex-wrap: wrap; /* Enable wrapping to the next line */
     gap: 10px; /* Space between period symbols */
     padding: 20px;
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Modern sans-serif font */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
     font-size: 10pt; /* Font size 10pt */
     max-width: 960px; /* Optional: limit container width for larger screens */
     margin: 0 auto; /* Center the container on the page */
@@ -49,6 +52,7 @@ header a:hover {
     color: #888; /* Grey color for period symbol */
     display: inline-block; /* Ensure it behaves like inline for horizontal flow */
     width: 20px; /* Set a fixed width for each period symbol for consistent spacing */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
 
 .day-title {
@@ -59,6 +63,7 @@ header a:hover {
     border-radius: 5px; /* Optional: rounded corners for title box */
     display: inline-block; /* Make title boxes inline-block */
     white-space: nowrap; /* Prevent title text from wrapping within the box */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
 
 
@@ -72,6 +77,8 @@ header a:hover {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup */
+    font-size: 10pt; /* Font size 10pt for popup content */
 }
 
 .popup-content {
@@ -81,6 +88,7 @@ header a:hover {
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     position: relative;
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup content */
 }
 
 .close-button {
@@ -91,6 +99,7 @@ header a:hover {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
 
 .close-button:hover,
@@ -100,13 +109,9 @@ header a:hover {
     cursor: pointer;
 }
 
-.popup, #popupTitle, #popupContent {
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Modern sans-serif font for popup */
-    font-size: 10pt; /* Font size 10pt for popup content */
-}
-
 #popupTitle {
     font-size: 12pt; /* Slightly larger font size for popup title */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup title */
 }
 
 footer {
@@ -117,4 +122,5 @@ footer {
     position: fixed; /* Fixed to the bottom of the viewport */
     bottom: 0;
     width: 100%;
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font for footer */
 }

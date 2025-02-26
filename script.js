@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
             dayDetails.images.forEach(imageName => {
                 const imgElement = document.createElement('img');
                 imgElement.src = `images/${imageName}`; // Path to images folder
-                imgElement.style.maxWidth = '100%'; // Optional: style images to fit popup
+                imgElement.style.maxWidth = '600px'; // Set max-width to 600px
                 imgElement.style.height = 'auto';
                 popupContent.appendChild(imgElement);
             });

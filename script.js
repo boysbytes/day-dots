@@ -35,9 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 dayTitleElement.addEventListener('click', () => openPopup(dayDetails));
                 daysContainer.appendChild(dayTitleElement);
             } else {
-                const dayBoxElement = document.createElement('div');
-                dayBoxElement.classList.add('day-box');
-                daysContainer.appendChild(dayBoxElement);
+                const dayPeriodElement = document.createElement('div');
+                dayPeriodElement.classList.add('day-period');
+                dayPeriodElement.textContent = '.'; // Period symbol
+                daysContainer.appendChild(dayPeriodElement);
             }
         }
     }

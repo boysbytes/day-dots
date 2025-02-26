@@ -28,18 +28,22 @@ document.addEventListener('DOMContentLoaded', function() {
             const dateKey = formatDate(currentDate);
             const dayDetails = daysData[dateKey];
 
+            const dayEntryElement = document.createElement('div'); // Container for each day entry
+            dayEntryElement.classList.add('day-entry');
+
             if (dayDetails) {
                 const dayTitleElement = document.createElement('div');
                 dayTitleElement.classList.add('day-title');
                 dayTitleElement.textContent = dayDetails.title;
                 dayTitleElement.addEventListener('click', () => openPopup(dayDetails));
-                daysContainer.appendChild(dayTitleElement);
+                dayEntryElement.appendChild(dayTitleElement); // Append title to entry
             } else {
                 const dayPeriodElement = document.createElement('div');
                 dayPeriodElement.classList.add('day-period');
                 dayPeriodElement.textContent = '.'; // Period symbol
-                daysContainer.appendChild(dayPeriodElement);
+                dayEntryElement.appendChild(dayPeriodElement); // Append period to entry
             }
+            daysContainer.appendChild(dayEntryElement); // Append day entry to container
         }
     }
 
@@ -47,22 +51,4 @@ document.addEventListener('DOMContentLoaded', function() {
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
         const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`; // YYYY-MM-DD format
-    }
-
-    function openPopup(dayDetails) {
-        popupTitle.textContent = dayDetails.title;
-        popupContent.textContent = dayDetails.content;
-        dayPopup.style.display = "block";
-    }
-
-    closePopup.onclick = function() {
-        dayPopup.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == dayPopup) {
-            dayPopup.style.display = "none";
-        }
-    }
-});
+        return `<span class="math-inline">\{year\}\-</span>{month}-${day}`; //

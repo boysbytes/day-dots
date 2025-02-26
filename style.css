@@ -78,7 +78,7 @@ header a:hover {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup */
-    font-size: 10pt; /* Font size 10pt for popup content */
+    font-size: 12pt; /* Font size 10pt for popup content */
 }
 
 .popup-content {
@@ -86,7 +86,7 @@ header a:hover {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
     position: relative;
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup content */
 }

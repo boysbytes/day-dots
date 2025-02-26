@@ -1,11 +1,10 @@
 .container {
-    display: flex; /* Change to flex to allow title boxes to take width */
-    flex-direction: column; /* Stack days vertically */
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20px, max-content)); /* Adjust period symbol spacing */
+    gap: 10px; /* Space between period symbols */
     padding: 20px;
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Modern sans-serif font */
     font-size: 10pt; /* Font size 10pt */
-    align-items: start; /* Align items to the start to prevent full width expansion */
 }
 
 .day-period {
@@ -14,24 +13,17 @@
     font-size: 20px; /* Adjust period size */
     line-height: 1; /* Adjust line height for vertical centering */
     color: #888; /* Grey color for period symbol */
-    margin-right: 10px; /* Add spacing between periods horizontally */
-    display: inline-block; /* Keep periods in a row */
+    display: inline-block; /* Ensure it behaves like inline for horizontal flow */
+    width: 20px; /* Set a fixed width for each period symbol */
 }
-
-.day-entry {
-    display: flex; /* Use flexbox for each day entry to align period and title */
-    align-items: center; /* Vertically align period and title */
-    margin-bottom: 5px; /* Spacing between day entries */
-}
-
 
 .day-title {
     background-color: #e0e0e0; /* Shade of color for title box */
-    padding: 10px;
+    padding: 10px; /* Adjust padding for title box */
     text-align: center;
     cursor: pointer;
     border-radius: 5px; /* Optional: rounded corners for title box */
-    display: inline-block; /* Make title box inline to wrap width */
+    display: inline-block; /* Make title boxes inline-block */
 }
 
 
@@ -54,8 +46,6 @@
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     position: relative;
-    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Same font as title */
-    font-size: 10pt; /* Same font size as title */
 }
 
 .close-button {
@@ -73,4 +63,13 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.popup, #popupTitle, #popupContent {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif; /* Modern sans-serif font for popup */
+    font-size: 10pt; /* Font size 10pt for popup content */
+}
+
+#popupTitle {
+    font-size: 12pt; /* Slightly larger font size for popup title */
 }

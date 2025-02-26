@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const dayTitleElement = document.createElement('div');
                 dayTitleElement.classList.add('day-title');
                 dayTitleElement.textContent = dayDetails.title;
-                dayTitleElement.addEventListener('click', () => openPopup(dayDetails));
+                dayTitleElement.addEventListener('click', (event) => openPopup(dateKey, dayDetails)); // Pass dateKey to openPopup
                 daysContainer.appendChild(dayTitleElement);
             } else {
                 const dayPeriodElement = document.createElement('div');
                 dayPeriodElement.classList.add('day-period');
-                dayPeriodElement.textContent = '▯'; // Period symbol
+                dayPeriodElement.textContent = '.'; // Period symbol
                 daysContainer.appendChild(dayPeriodElement);
             }
         }
@@ -65,9 +65,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${year}-${month}-${day}`; //YYYY-MM-DD format
     }
 
-    function openPopup(dayDetails) {
+    function openPopup(dateKey, dayDetails) { // Accept dateKey as argument
         popupTitle.textContent = dayDetails.title;
         popupContent.innerHTML = ''; // Clear previous content
+
+        const dateElement = document.createElement('h3'); // Or <p>, <h2>, etc.
+        const date = new Date(dateKey); // Create Date object from dateKey
+        const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }); // Format date
+        dateElement.textContent = formattedDate; // Display the formatted date
+        popupContent.appendChild(dateElement);
+
 
         const textContentElement = document.createElement('p');
         textContentElement.textContent = dayDetails.content;

@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Otherwise, show a period symbol
                 const dayPeriodElement = document.createElement('div');
                 dayPeriodElement.classList.add('day-period');
-                dayPeriodElement.textContent = '.';
+                dayPeriodElement.textContent = '•';
 
                 // Compare currentDate to "today" for color-coding
                 const today = new Date();

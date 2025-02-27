@@ -144,6 +144,13 @@ header a:hover {
     font-size: 12pt; /* Keep content font size at 10pt or adjust as needed */
 }
 
+.popup-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto; /* Centers the image */
+    border-radius: 5px; /* Optional: rounded corners */
+}
 
 .close-button {
     color: #aaa;

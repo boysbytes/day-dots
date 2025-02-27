@@ -106,9 +106,15 @@ document.addEventListener('DOMContentLoaded', function() {
         popupContent.appendChild(dateElement);
 
         // Show the day's text content
-        const textContentElement = document.createElement('p');
-        textContentElement.textContent = dayDetails.content;
+        // const textContentElement = document.createElement('p');
+        // textContentElement.textContent = dayDetails.content;
+        // popupContent.appendChild(textContentElement);
+
+        // Convert Markdown to HTML
+        const textContentElement = document.createElement('div');
+        textContentElement.innerHTML = marked.parse(dayDetails.content);
         popupContent.appendChild(textContentElement);
+
 
         // If there are images, add them
         if (dayDetails.images && Array.isArray(dayDetails.images)) {

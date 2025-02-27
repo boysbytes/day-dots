@@ -96,7 +96,7 @@ header a:hover {
     border-radius: 5px; /* Optional: rounded corners for title box */
     display: inline-block; /* Make title boxes inline-block */
     white-space: nowrap; /* Prevent title text from wrapping within the box */
-    font-family: 'Corben', serif; /* Use DM Sans font */
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
     vertical-align: middle; /* Align title boxes vertically in the middle */
 }
 

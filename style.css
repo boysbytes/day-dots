@@ -49,7 +49,7 @@ header a:hover {
 .day-period {
     text-align: center;
     cursor: pointer;
-    font-size: 24px; /* Adjust period size */
+    font-size: 20px; /* Adjust period size */
     line-height: 2.0; /* Adjust line height for vertical centering and consistency */
     /* color: #888;  Grey color for period symbol */
     display: inline-block; /* Ensure it behaves like inline for horizontal flow */

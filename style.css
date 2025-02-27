@@ -50,7 +50,7 @@ header a:hover {
     text-align: center;
     cursor: pointer;
     font-size: 20px; /* Adjust period size */
-    line-height: 1.8; /* Adjust line height for vertical centering and consistency */
+    line-height: 2.0; /* Adjust line height for vertical centering and consistency */
     /* color: #888;  Grey color for period symbol */
     display: inline-block; /* Ensure it behaves like inline for horizontal flow */
     width: 20px; /* Set a fixed width for each period symbol for consistent spacing */

@@ -62,7 +62,7 @@ header a:hover {
   }
   
   .day-period.today {
-    color: #A4D99C; /* Bright color (red) for "today" */
+    color: #A4D99C; /* Bright color for "today" */
     font-weight: bold; /* Make it bold to stand out, optional */
     animation: pulse 1.2s infinite; /* Pulse every 1.2 seconds, repeat infinitely */
   }
@@ -74,7 +74,7 @@ header a:hover {
       opacity: 1;
     }
     50% {
-      transform: scale(1.8); /* Grow slightly larger at midpoint */
+      transform: scale(2.4); /* Grow slightly larger at midpoint */
       opacity: 0.6;
     }
     100% {

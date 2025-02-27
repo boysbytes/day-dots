@@ -14,12 +14,12 @@ header {
 }
 
 header h1 {
-    font-size: 48pt;
+    font-size: 36pt;
     margin-bottom: 0.5em;
 }
 
 header p {
-    font-size: 24pt;
+    font-size: 16pt;
     color: #0D0D0D;
 }
 
@@ -40,7 +40,7 @@ header a:hover {
     gap: 10px; /* Space between period symbols */
     padding: 20px;
     font-family: 'DM Sans', sans-serif; /* Modern sans-serif font */
-    font-size: 10pt; /* Font size 10pt */
+    font-size: 12pt; /* Font size 10pt */
     max-width: 960px; /* Optional: limit container width for larger screens */
     margin: 0 auto; /* Center the container on the page */
     line-height: 1.5; /* Adjust line-height for vertical spacing */
@@ -112,7 +112,7 @@ header a:hover {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup */
-    font-size: 10pt; /* Font size 10pt for popup content */
+    /* font-size: 10pt; Font size 10pt for popup content */
 }
 
 .popup-content {
@@ -126,15 +126,19 @@ header a:hover {
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup content */
 }
 
+.popup-content h2 { /* Add this rule to style the date (h2 element) */
+    font-size: 14pt; /* Adjust font size as needed */
+}
+
 .popup-content h3 { /* Add this rule to style the date (h3 element) */
-    font-size: 12pt; /* Adjust font size as needed */
+    font-size: 14pt; /* Adjust font size as needed */
     margin-top: 0; /* Remove default top margin for better spacing */
     margin-bottom: 10px; /* Add some bottom margin to separate from content */
 }
 
 
 .popup-content p { /* Style the content paragraph if needed */
-    font-size: 10pt; /* Keep content font size at 10pt or adjust as needed */
+    font-size: 12pt; /* Keep content font size at 10pt or adjust as needed */
 }
 
 

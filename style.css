@@ -37,9 +37,10 @@ header a:hover {
 .container {
     display: flex; /* Use flexbox layout */
     flex-wrap: wrap; /* Enable wrapping to the next line */
+    align-items: center;
     gap: 10px; /* Space between period symbols */
     padding: 20px;
-    font-family: 'DM Sans', sans-serif; /* Modern sans-serif font */
+    font-family: 'DM Sans', sans-serif;
     font-size: 12pt; /* Font size 10pt */
     max-width: 960px; /* Optional: limit container width for larger screens */
     margin: 0 auto; /* Center the container on the page */
@@ -47,13 +48,13 @@ header a:hover {
 }
 
 .day-period {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 32px;               /* or 48px if you need more room */
     height: 32px;
     font-size: 20px;
-    line-height: 1;
+    /* line-height: 1; */
     transform-origin: center;
     vertical-align: middle;
     cursor: pointer;
@@ -69,7 +70,6 @@ header a:hover {
   
 .day-period.today {
     color: #A4D99C;
-    font-weight: bold;
     animation: pulse 1.2s infinite;
 }
   
@@ -96,7 +96,8 @@ header a:hover {
     text-align: center;
     cursor: pointer;
     border-radius: 5px; /* Optional: rounded corners for title box */
-    display: inline-block; /* Make title boxes inline-block */
+    display: flex;
+    align-items: center;
     white-space: nowrap; /* Prevent title text from wrapping within the box */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
     vertical-align: middle; /* Align title boxes vertically in the middle */

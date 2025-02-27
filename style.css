@@ -161,9 +161,10 @@ header a:hover {
 }
 
 #popupTitle {
-    font-size: 12pt; /* Slightly larger font size for popup title */
+    font-size: 14pt; /* Slightly larger font size for popup title */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup title */
 }
+
 
 footer {
     text-align: center;

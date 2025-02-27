@@ -50,46 +50,45 @@ header a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 32px;               /* or 48px if you need more room */
+    height: 32px;
     font-size: 20px;
-    vertical-align: middle; /* or remove this if no longer needed */
-    transform-origin: center center; /* Ensure scaling happens about the center */
-}
-
-
+    line-height: 1;
+    transform-origin: center;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  
 .day-period.past {
-    color: #6A8C65; /* Default grey for past dates */
-    font-size: 20px; /* Adjust period size */
-  }
+    color: #6A8C65;
+}
   
-  .day-period.today {
-    color: #A4D99C; /* Bright color for "today" */
-    font-size: 20px; /* Adjust period size */
-    font-weight: bold; /* Make it bold to stand out, optional */
-    animation: pulse 1.2s infinite; /* Pulse every 1.2 seconds, repeat infinitely */
-  }
+.day-period.future {
+    color: #A4D99C;
+}
   
-/* Define the pulse animation */
+.day-period.today {
+    color: #A4D99C;
+    font-weight: bold;
+    animation: pulse 1.2s infinite;
+}
+  
+/* Tweak scale so it fits the box nicely */
 @keyframes pulse {
     0% {
       transform: scale(1);
       opacity: 1;
     }
     50% {
-      transform: scale(2.4); /* Grow slightly larger at midpoint */
+      transform: scale(2);
       opacity: 0.6;
     }
     100% {
       transform: scale(1);
       opacity: 1;
     }
-  }
-
-.day-period.future {
-    color: #A4D99C; /* Lighter grey for future dates */
-    font-size: 20px; /* Adjust period size */
-  }
+}
+  
 
 .day-title {
     background-color: #A4D99C; /* Shade of color for title box */

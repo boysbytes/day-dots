@@ -43,7 +43,7 @@ header a:hover {
     font-size: 12pt; /* Font size 10pt */
     max-width: 960px; /* Optional: limit container width for larger screens */
     margin: 0 auto; /* Center the container on the page */
-    line-height: 1.5; /* Adjust line-height for vertical spacing */
+    line-height: 1.0; /* Adjust line-height for vertical spacing */
 }
 
 .day-period {

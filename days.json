@@ -12,4 +12,8 @@
         "title": "Another Day",
         "content": "More content for March 10, 2025."
     }
+    "2026-01-01": {
+        "title": "Now with emoji 🤖",
+        "content": "Content placeholder."
+    }
 }

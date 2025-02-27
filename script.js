@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 const dayPeriodElement = document.createElement('div');
                 dayPeriodElement.classList.add('day-period');
-                dayPeriodElement.textContent = '○'; // Period symbol
+                dayPeriodElement.textContent = '.'; // Period symbol
                 daysContainer.appendChild(dayPeriodElement);
             }
         }

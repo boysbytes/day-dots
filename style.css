@@ -14,12 +14,12 @@ header {
 }
 
 header h1 {
-    font-size: 2em;
+    font-size: 48pt;
     margin-bottom: 0.5em;
 }
 
 header p {
-    font-size: 1em;
+    font-size: 24pt;
     color: #0D0D0D;
 }
 

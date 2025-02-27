@@ -25,28 +25,38 @@ document.addEventListener('DOMContentLoaded', function() {
                 const currentDate = new Date(startDate.getTime() + i * 86400000);
                 const dateKey = formatDate(currentDate);
                 const dayDetails = daysData[dateKey];
-        
+              
                 if (dayDetails) {
-                    // Existing logic for days with content...
-                    const dayTitleElement = document.createElement('div');
-                    dayTitleElement.classList.add('day-title');
-                    dayTitleElement.textContent = dayDetails.title;
-                    dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
-                    daysContainer.appendChild(dayTitleElement);
+                  // Existing logic for days with content...
+                  const dayTitleElement = document.createElement('div');
+                  dayTitleElement.classList.add('day-title');
+                  dayTitleElement.textContent = dayDetails.title;
+                  dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
+                  daysContainer.appendChild(dayTitleElement);
                 } else {
-                    // Create the period element for days without content
-                    const dayPeriodElement = document.createElement('div');
-                    dayPeriodElement.classList.add('day-period');
-                    dayPeriodElement.textContent = '.';
-        
-                    // If the date is in the future, add a "future" class
-                    if (currentDate > new Date()) {
-                        dayPeriodElement.classList.add('future');
-                    }
-        
-                    daysContainer.appendChild(dayPeriodElement);
+                  // Create the period element for days without content
+                  const dayPeriodElement = document.createElement('div');
+                  dayPeriodElement.classList.add('day-period');
+                  dayPeriodElement.textContent = '.';
+              
+                  // Compare currentDate to today's date
+                  const today = new Date();
+              
+                  // Convert both dates to strings (like "Mon Feb 27 2025") so time zones are less likely to interfere
+                  if (currentDate.toDateString() === today.toDateString()) {
+                    // It's exactly "today"
+                    dayPeriodElement.classList.add('today');
+                  } else if (currentDate > today) {
+                    // Future date
+                    dayPeriodElement.classList.add('future');
+                  } else {
+                    // Past date
+                    dayPeriodElement.classList.add('past');
+                  }
+              
+                  daysContainer.appendChild(dayPeriodElement);
                 }
-            }
+            }              
         }
         
 

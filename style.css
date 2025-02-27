@@ -57,11 +57,19 @@ header a:hover {
     vertical-align: middle; /* Align period symbols vertically in the middle */
 }
 
-.day-period.future {
-    color: #ccc; /* or another light color */
-}
-
-
+.day-period.past {
+    color: #888; /* Default grey for past dates */
+  }
+  
+  .day-period.today {
+    color: #ff0000; /* Bright color (red) for "today" */
+    font-weight: bold; /* Make it bold to stand out, optional */
+  }
+  
+  .day-period.future {
+    color: #ccc; /* Lighter grey for future dates */
+  }
+  
 .day-title {
     background-color: #e0e0e0; /* Shade of color for title box */
     padding: 10px; /* Adjust padding for title box */

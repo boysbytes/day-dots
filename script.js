@@ -16,51 +16,39 @@ document.addEventListener('DOMContentLoaded', function() {
             generateDays({}); // Generate days without data if fetch fails
         });
 
-    function generateDays(daysData) {
-        // Determine start and end dates
-        let startDate, endDate;
-        const dates = Object.keys(daysData);
-
-        if (dates.length > 0) {
-            const sortedDates = dates.sort();
-            startDate = new Date(sortedDates[0]);
-            const lastDate = new Date(sortedDates[sortedDates.length - 1]);
-
-            // Set endDate to one year after the last date in daysData
-            endDate = new Date(lastDate);
-            endDate.setFullYear(lastDate.getFullYear() + 1);
-        } else {
-            // If no data, default to current year
-            startDate = new Date(new Date().getFullYear(), 0, 1); // January 1st of current year
-            endDate = new Date(); // Today
-        }
-
-        console.log("Start Date:", startDate); // Debugging: Log start date
-        console.log("End Date:", endDate);     // Debugging: Log end date
-
-        const timeDiff = endDate.getTime() - startDate.getTime();
-        const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-        for (let i = 0; i <= dayDiff; i++) {
-            // Updated calculation: increment using a constant 24-hour in milliseconds
-            const currentDate = new Date(startDate.getTime() + i * 86400000);
-            const dateKey = formatDate(currentDate);
-            const dayDetails = daysData[dateKey];
-
-            if (dayDetails) {
-                const dayTitleElement = document.createElement('div');
-                dayTitleElement.classList.add('day-title');
-                dayTitleElement.textContent = dayDetails.title;
-                dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
-                daysContainer.appendChild(dayTitleElement);
-            } else {
-                const dayPeriodElement = document.createElement('div');
-                dayPeriodElement.classList.add('day-period');
-                dayPeriodElement.textContent = '.'; // Period symbol
-                daysContainer.appendChild(dayPeriodElement);
+        function generateDays(daysData) {
+            // Determine start and end dates as before...
+            const timeDiff = endDate.getTime() - startDate.getTime();
+            const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        
+            for (let i = 0; i <= dayDiff; i++) {
+                const currentDate = new Date(startDate.getTime() + i * 86400000);
+                const dateKey = formatDate(currentDate);
+                const dayDetails = daysData[dateKey];
+        
+                if (dayDetails) {
+                    // Existing logic for days with content...
+                    const dayTitleElement = document.createElement('div');
+                    dayTitleElement.classList.add('day-title');
+                    dayTitleElement.textContent = dayDetails.title;
+                    dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
+                    daysContainer.appendChild(dayTitleElement);
+                } else {
+                    // Create the period element for days without content
+                    const dayPeriodElement = document.createElement('div');
+                    dayPeriodElement.classList.add('day-period');
+                    dayPeriodElement.textContent = '.';
+        
+                    // If the date is in the future, add a "future" class
+                    if (currentDate > new Date()) {
+                        dayPeriodElement.classList.add('future');
+                    }
+        
+                    daysContainer.appendChild(dayPeriodElement);
+                }
             }
         }
-    }
+        
 
     function formatDate(date) {
         const year = date.getFullYear();

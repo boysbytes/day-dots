@@ -57,6 +57,11 @@ header a:hover {
     vertical-align: middle; /* Align period symbols vertically in the middle */
 }
 
+.day-period.future {
+    color: #ccc; /* or another light color */
+}
+
+
 .day-title {
     background-color: #e0e0e0; /* Shade of color for title box */
     padding: 10px; /* Adjust padding for title box */
@@ -96,7 +101,7 @@ header a:hover {
 }
 
 .popup-content h3 { /* Add this rule to style the date (h3 element) */
-    font-size: 14pt; /* Adjust font size as needed */
+    font-size: 12pt; /* Adjust font size as needed */
     margin-top: 0; /* Remove default top margin for better spacing */
     margin-bottom: 10px; /* Add some bottom margin to separate from content */
 }

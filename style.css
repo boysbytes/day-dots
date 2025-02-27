@@ -2,6 +2,7 @@ body {
     margin: 0; /* Reset default body margin */
     padding: 0; /* Reset default body padding */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
+    background-color: #F2F2E9;
 }
 
 header {
@@ -83,7 +84,7 @@ header a:hover {
     }
   }
 
-  .day-period.future {
+.day-period.future {
     color: #B7F2AE; /* Lighter grey for future dates */
   }
 

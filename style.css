@@ -74,7 +74,7 @@ header a:hover {
       opacity: 1;
     }
     50% {
-      transform: scale(1.4); /* Grow slightly larger at midpoint */
+      transform: scale(1.8); /* Grow slightly larger at midpoint */
       opacity: 0.6;
     }
     100% {

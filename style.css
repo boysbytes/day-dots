@@ -10,7 +10,7 @@ header {
     padding: 20px;
     background-color: #F2F2E9;
     border-bottom: 1px solid #F2F2E9; /* Bottom border for header */
-    font-family: 'Corben', sans-serif; /* Use Corben font */
+    font-family: 'Corben', serif; /* Use Corben font */
 }
 
 header h1 {
@@ -24,9 +24,9 @@ header p {
 }
 
 header a {
-    color: #6A8C65; /* Example link color */
+    color: #6A8C65;
     text-decoration: none;
-    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
+    font-family: 'Corben', serif;
 }
 
 header a:hover {

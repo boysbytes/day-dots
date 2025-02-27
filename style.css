@@ -120,24 +120,14 @@ header a:hover {
 
 .popup-content {
     background-color: #F2F2E9;
-    margin: 0; /* Remove margin so it takes full space */
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: none;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
-    max-width: none; /* Remove max-width limit */
-    max-height: none; /* Remove max-height limit */
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto; /* Enable scrolling if content is long */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 800px; /* Add this line to limit the maximum width of the popup */
+    position: relative;
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup content */
 }
-
 
 .popup-content h2 { /* Add this rule to style the date (h2 element) */
     font-size: 14pt; /* Adjust font size as needed */
@@ -163,24 +153,21 @@ header a:hover {
 }
 
 .close-button {
-    color: #0D0D0D; /* Dark color for visibility */
+    color: #aaa;
     position: absolute;
-    top: 15px; /* Position at the top */
-    right: 15px; /* Position at the right */
+    right: 10px;
+    top: 5px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    z-index: 10; /* Ensure it's always on top */
-    background-color: rgba(255, 255, 255, 0.7); /* Light background for visibility */
-    padding: 5px 10px;
-    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
 
 .close-button:hover,
 .close-button:focus {
-    .close-button:hover {
-        background-color: rgba(255, 255, 255, 1); /* Brighter background on hover */
-    }
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 #popupTitle {

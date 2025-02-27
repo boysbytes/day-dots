@@ -135,10 +135,10 @@ document.addEventListener('DOMContentLoaded', function() {
         dayPopup.style.display = "none";
     };
 
-    // Close the popup if user clicks anywhere
+    // Close the popup if user clicks outside the popup content
     window.onclick = function(event) {
-        if (dayPopup.style.display === "block") {
+        if (event.target === dayPopup) {
             dayPopup.style.display = "none";
         }
-    };    
+    };
 });

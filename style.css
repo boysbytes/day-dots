@@ -7,8 +7,8 @@ body {
 header {
     text-align: left; /* Align header text to the left */
     padding: 20px;
-    background-color: #f0f0f0; /* Light grey background for header */
-    border-bottom: 1px solid #ccc; /* Bottom border for header */
+    background-color: #F2F2E9;
+    border-bottom: 1px solid #F2F2E9; /* Bottom border for header */
     font-family: 'Corben', sans-serif; /* Use Corben font */
 }
 
@@ -19,11 +19,11 @@ header h1 {
 
 header p {
     font-size: 1em;
-    color: #333;
+    color: #0D0D0D;
 }
 
 header a {
-    color: #007BFF; /* Example link color */
+    color: #6A8C65; /* Example link color */
     text-decoration: none;
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
 }
@@ -50,7 +50,7 @@ header a:hover {
     cursor: pointer;
     font-size: 20px; /* Adjust period size */
     line-height: 1.5; /* Adjust line height for vertical centering and consistency */
-    color: #888; /* Grey color for period symbol */
+    /* color: #888;  Grey color for period symbol */
     display: inline-block; /* Ensure it behaves like inline for horizontal flow */
     width: 20px; /* Set a fixed width for each period symbol for consistent spacing */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
@@ -58,20 +58,37 @@ header a:hover {
 }
 
 .day-period.past {
-    color: #888; /* Default grey for past dates */
+    color: #6A8C65; /* Default grey for past dates */
   }
   
   .day-period.today {
-    color: #ff0000; /* Bright color (red) for "today" */
+    color: #A4D99C; /* Bright color (red) for "today" */
     font-weight: bold; /* Make it bold to stand out, optional */
+    animation: pulse 1.2s infinite; /* Pulse every 1.2 seconds, repeat infinitely */
   }
   
+/* Define the pulse animation */
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.4); /* Grow slightly larger at midpoint */
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
   .day-period.future {
-    color: #ccc; /* Lighter grey for future dates */
+    color: #B7F2AE; /* Lighter grey for future dates */
   }
 
 .day-title {
-    background-color: #e0e0e0; /* Shade of color for title box */
+    background-color: #A4D99C; /* Shade of color for title box */
     padding: 10px; /* Adjust padding for title box */
     text-align: center;
     cursor: pointer;
@@ -98,7 +115,7 @@ header a:hover {
 }
 
 .popup-content {
-    background-color: #fefefe;
+    background-color: #F2F2E9;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
@@ -146,8 +163,8 @@ header a:hover {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #f0f0f0; /* Light grey background for footer */
-    border-top: 1px solid #ccc; /* Top border for footer */
+    background-color: #F2F2E9; /* Light grey background for footer */
+    border-top: 1px solid #F2F2E9; /* Top border for footer */
     position: fixed; /* Fixed to the bottom of the viewport */
     bottom: 0;
     width: 100%;

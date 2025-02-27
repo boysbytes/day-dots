@@ -1,19 +1,15 @@
 {
-    "2025-01-15": {
-        "title": "First Entry",
-        "content": "This is the content for January 15, 2025.",
-        "images": ["image.png"]
+    "2025-02-25": {
+        "title": "💡Learned about this week-by-week map",
+        "content": "Read on kottke.org about this visualization of a person's life in weeks.",
+        "images": ["gina-trapani-week-by-week.png"]
     },
     "2025-02-26": {
-        "title": "Yesterday's Note",
-        "content": "You can add more details here."
+        "title": "Day Journal ",
+        "content": "Build on my version of a day-by-day journal that I can publish on GitHub. Tadaa!"
     },
-    "2025-03-10": {
-        "title": "Another Day",
-        "content": "More content for March 10, 2025."
-    },
-    "2026-01-01": {
-        "title": "Now with emoji 🤖",
-        "content": "Content placeholder."
+    "2025-02-27": {
+        "title": "Thinking about OKRs",
+        "content": "Another way to say I'm overcomplicating things."
     }
 }

@@ -47,16 +47,16 @@ header a:hover {
 }
 
 .day-period {
-    text-align: center;
-    cursor: pointer;
-    font-size: 20px; /* Adjust period size */
-    line-height: 2.0; /* Adjust line height for vertical centering and consistency */
-    /* color: #888;  Grey color for period symbol */
-    display: inline-block; /* Ensure it behaves like inline for horizontal flow */
-    width: 24px; /* Set a fixed width for each period symbol for consistent spacing */
-    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
-    vertical-align: middle; /* Align period symbols vertically in the middle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+    vertical-align: middle; /* or remove this if no longer needed */
+    transform-origin: center center; /* Ensure scaling happens about the center */
 }
+
 
 .day-period.past {
     color: #6A8C65; /* Default grey for past dates */

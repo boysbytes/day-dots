@@ -35,6 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
             endDate = new Date(); // Today
         }
 
+        console.log("Start Date:", startDate); // Debugging: Log start date
+        console.log("End Date:", endDate);     // Debugging: Log end date
+
 
         const timeDiff = endDate.getTime() - startDate.getTime();
         const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));

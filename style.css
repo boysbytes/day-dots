@@ -38,21 +38,23 @@ header a:hover {
     flex-wrap: wrap; /* Enable wrapping to the next line */
     gap: 10px; /* Space between period symbols */
     padding: 20px;
-    font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
+    font-family: 'DM Sans', sans-serif; /* Modern sans-serif font */
     font-size: 10pt; /* Font size 10pt */
     max-width: 960px; /* Optional: limit container width for larger screens */
     margin: 0 auto; /* Center the container on the page */
+    line-height: 1.5; /* Adjust line-height for vertical spacing */
 }
 
 .day-period {
     text-align: center;
     cursor: pointer;
     font-size: 20px; /* Adjust period size */
-    line-height: 1; /* Adjust line height for vertical centering */
+    line-height: 1.5; /* Adjust line height for vertical centering and consistency */
     color: #888; /* Grey color for period symbol */
     display: inline-block; /* Ensure it behaves like inline for horizontal flow */
     width: 20px; /* Set a fixed width for each period symbol for consistent spacing */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
+    vertical-align: middle; /* Align period symbols vertically in the middle */
 }
 
 .day-title {
@@ -64,6 +66,7 @@ header a:hover {
     display: inline-block; /* Make title boxes inline-block */
     white-space: nowrap; /* Prevent title text from wrapping within the box */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
+    vertical-align: middle; /* Align title boxes vertically in the middle */
 }
 
 
@@ -78,7 +81,7 @@ header a:hover {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup */
-    font-size: 12pt; /* Font size 10pt for popup content */
+    font-size: 10pt; /* Font size 10pt for popup content */
 }
 
 .popup-content {
@@ -86,13 +89,14 @@ header a:hover {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 800px; /* Add this line to limit the maximum width of the popup */
     position: relative;
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup content */
 }
 
 .popup-content h3 { /* Add this rule to style the date (h3 element) */
-    font-size: 10pt; /* Adjust font size as needed */
+    font-size: 14pt; /* Adjust font size as needed */
     margin-top: 0; /* Remove default top margin for better spacing */
     margin-bottom: 10px; /* Add some bottom margin to separate from content */
 }
@@ -101,6 +105,7 @@ header a:hover {
 .popup-content p { /* Style the content paragraph if needed */
     font-size: 10pt; /* Keep content font size at 10pt or adjust as needed */
 }
+
 
 .close-button {
     color: #aaa;
@@ -118,11 +123,6 @@ header a:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
-}
-
-.popup, #popupTitle, #popupContent {
-    font-family: 'DM Sans', sans-serif; /* Modern sans-serif font for popup */
-    font-size: 10pt; /* Font size 10pt for popup content */
 }
 
 #popupTitle {

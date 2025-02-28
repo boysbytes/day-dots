@@ -120,17 +120,13 @@ header a:hover {
 
 .popup-content {
     background-color: #F2F2E9;
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: none; /* Remove border if you don't want it in full screen */
-    width: 100%; /* Make content take full width of popup */
-    height: 100%; /* Make content take full height of popup */
-    max-width: none; /* Remove max-width restriction */
-    max-height: none; /* Remove max-height restriction */
-    position: relative; /* Needed for close button positioning if you keep it */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 800px; /* Add this line to limit the maximum width of the popup */
+    position: relative;
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup content */
-    display: flex; /* Use flexbox to allow vertical scrolling if content overflows */
-    flex-direction: column; /* Stack content vertically */
-    overflow-y: auto; /* Enable vertical scrolling within content */
 }
 
 .popup-content h2 { /* Add this rule to style the date (h2 element) */

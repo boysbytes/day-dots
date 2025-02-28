@@ -35,33 +35,30 @@ header a:hover {
 
 
 .container {
-    display: grid; /* Use CSS Grid */
-    grid-template-columns: repeat(auto-fit, minmax(32px, 1fr)); /*  Dynamic column sizing */
-    grid-auto-rows: minmax(32px, auto);
-    gap: 10px;
+    display: flex; /* Use flexbox layout */
+    flex-wrap: wrap; /* Enable wrapping to the next line */
+    align-items: center;
+    gap: 10px; /* Space between period symbols */
     padding: 20px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 12pt;
-    max-width: 960px;
-    margin: 0 auto;
-    line-height: 1.5;
-}
-
-.day-item {
-    display: flex; /* Day Items become flex containers */
-    align-items: center;
-    justify-content: center; /* Center content */
-    height: 32px; /* Ensure consistent height for all day items */
-    /* Other styles */
+    font-size: 12pt; /* Font size 10pt */
+    max-width: 960px; /* Optional: limit container width for larger screens */
+    margin: 0 auto; /* Center the container on the page */
+    line-height: 1.5; /* Adjust line-height for vertical spacing */
 }
 
 .day-period {
-    width: 32px; /* Width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;               /* or 48px if you need more room */
+    height: 32px;
     font-size: 20px;
+    /* line-height: 1; */
     transform-origin: center;
     vertical-align: middle;
     cursor: pointer;
-}
+  }
   
 .day-period.past {
     color: #6A8C65;
@@ -99,11 +96,11 @@ header a:hover {
     text-align: center;
     cursor: pointer;
     border-radius: 5px; /* Optional: rounded corners for title box */
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Prevent title text from wrapping within the box */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
     vertical-align: middle; /* Align title boxes vertically in the middle */
-    white-space: nowrap;
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis if overflow */
 }
 
 
@@ -115,21 +112,21 @@ header a:hover {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow-y: auto; /* Enable vertical scroll if needed */
-    background-color: #F2F2E9; /* Changed: Solid background color */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup */
+    /* font-size: 10pt; Font size 10pt for popup content */
 }
 
 .popup-content {
     background-color: #F2F2E9;
-    margin: 20px auto 60px auto; /* Changed: Top and bottom margin for readability */
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: none; /* Changed: Removed border */
-    width: 90%; /* Changed: Slightly smaller width for content padding */
-    max-width: 960px; /* Changed: Limit the maximum width to match main container */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 800px; /* Add this line to limit the maximum width of the popup */
     position: relative;
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for popup content */
-    box-sizing: border-box; /* Add: Include padding and border in width calculations*/
 }
 
 .popup-content h2 { /* Add this rule to style the date (h2 element) */
@@ -157,9 +154,9 @@ header a:hover {
 
 .close-button {
     color: #aaa;
-    position: fixed; /* Changed: fixed position */
-    right: 25px; /* Changed: right margin */
-    top: 25px; /* Changed: top margin */
+    position: absolute;
+    right: 10px;
+    top: 5px;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;

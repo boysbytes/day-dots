@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     const daysContainer = document.getElementById('daysContainer');
     const dayPopup = document.getElementById('dayPopup');
     const popupTitle = document.getElementById('popupTitle');
@@ -44,67 +44,41 @@ document.addEventListener('DOMContentLoaded', function () {
         const timeDiff = endDate.getTime() - startDate.getTime();
         const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-        const row = [];
-
         // Generate a day element for each date in the range
         for (let i = 0; i <= dayDiff; i++) {
             // Increment by exactly 24 hours per day
             const currentDate = new Date(startDate.getTime() + i * 86400000);
             const dateKey = formatDate(currentDate);
             const dayDetails = daysData[dateKey];
-            const dayElement = document.createElement('div');
-            dayElement.classList.add('day-item');
-            dayElement.dataset.date = dateKey;
-            row.push(dayElement);
 
             if (dayDetails) {
                 // If there's an entry for this date, show a clickable title
-                dayElement.classList.add('day-title');
-                dayElement.textContent = dayDetails.title;
-                dayElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
+                const dayTitleElement = document.createElement('div');
+                dayTitleElement.classList.add('day-title');
+                dayTitleElement.textContent = dayDetails.title;
+                dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
+                daysContainer.appendChild(dayTitleElement);
             } else {
                 // Otherwise, show a period symbol
-                dayElement.classList.add('day-period');
-                dayElement.textContent = '•';
+                const dayPeriodElement = document.createElement('div');
+                dayPeriodElement.classList.add('day-period');
+                dayPeriodElement.textContent = '•';
 
                 // Compare currentDate to "today" for color-coding
                 const today = new Date();
 
                 // Convert both dates to strings to avoid time zone edge cases
                 if (currentDate.toDateString() === today.toDateString()) {
-                    dayElement.classList.add('today');
+                    dayPeriodElement.classList.add('today');
                 } else if (currentDate > today) {
-                    dayElement.classList.add('future');
+                    dayPeriodElement.classList.add('future');
                 } else {
-                    dayElement.classList.add('past');
+                    dayPeriodElement.classList.add('past');
                 }
+
+                daysContainer.appendChild(dayPeriodElement);
             }
-            daysContainer.appendChild(dayElement);
         }
-
-        // Adjust grid columns for day-title elements
-        const dayTitleElements = daysContainer.querySelectorAll('.day-title');
-        dayTitleElements.forEach(dayTitleElement => {
-            const newColumns = Math.ceil(dayTitleElement.scrollWidth / 32);
-            dayTitleElement.style.gridColumn = `span ${newColumns}`;
-        });
-
-        const dayPeriod = daysContainer.querySelectorAll('.day-period');
-        let rowPosition = 0;
-        dayPeriod.forEach(element => {
-            element.style.gridColumnStart = rowPosition + 1;
-            const previous = element.previousElementSibling;
-            if (previous && previous.classList.contains('day-title')) {
-                rowPosition += parseInt(previous.style.gridColumn.split(" ")[1])
-            } else {
-                rowPosition++;
-            }
-        });
-
-        //Dynamically update grid
-        const numColumns = rowPosition;
-        daysContainer.style.gridTemplateColumns = `repeat(${numColumns}, 32px)`;
-
     }
 
     // Format a Date object as YYYY-MM-DD
@@ -131,6 +105,11 @@ document.addEventListener('DOMContentLoaded', function () {
         dateElement.textContent = formattedDate;
         popupContent.appendChild(dateElement);
 
+        // Show the day's text content
+        // const textContentElement = document.createElement('p');
+        // textContentElement.textContent = dayDetails.content;
+        // popupContent.appendChild(textContentElement);
+
         // Convert Markdown to HTML
         const textContentElement = document.createElement('div');
         textContentElement.innerHTML = marked.parse(dayDetails.content);
@@ -152,12 +131,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Close the popup when clicking the close button
-    closePopup.onclick = function () {
+    closePopup.onclick = function() {
         dayPopup.style.display = "none";
     };
 
     // Close the popup if user clicks outside the popup content
-    window.onclick = function (event) {
+    window.onclick = function(event) {
         if (event.target === dayPopup) {
             dayPopup.style.display = "none";
         }

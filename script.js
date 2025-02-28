@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const dayPopup = document.getElementById('dayPopup');
     const popupTitle = document.getElementById('popupTitle');
     const popupContent = document.getElementById('popupContent');
-    const closePopup = document.getElementById('closePopup');
+    // const closePopup = document.getElementById('closePopup');
 
     // Fetch and process data from days.json
     fetch('days.json')
@@ -105,11 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
         dateElement.textContent = formattedDate;
         popupContent.appendChild(dateElement);
 
-        // Show the day's text content
-        // const textContentElement = document.createElement('p');
-        // textContentElement.textContent = dayDetails.content;
-        // popupContent.appendChild(textContentElement);
-
         // Convert Markdown to HTML
         const textContentElement = document.createElement('div');
         textContentElement.innerHTML = marked.parse(dayDetails.content);
@@ -121,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
             dayDetails.images.forEach(imageName => {
                 const imgElement = document.createElement('img');
                 imgElement.src = `images/${imageName}`;
-                imgElement.style.maxWidth = '600px';
+                imgElement.style.maxWidth = '100%';
                 imgElement.style.height = 'auto';
                 popupContent.appendChild(imgElement);
             });
@@ -131,9 +126,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Close the popup when clicking the close button
-    closePopup.onclick = function() {
-        dayPopup.style.display = "none";
-    };
+    // closePopup.onclick = function() {
+    //     dayPopup.style.display = "none";
+    // };
 
     // Close the popup if user clicks outside the popup content
     window.onclick = function(event) {

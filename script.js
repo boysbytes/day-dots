@@ -64,6 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 dayPeriodElement.classList.add('day-period');
                 dayPeriodElement.textContent = '•';
 
+                // Add tooltip with formatted date
+                const tooltipDate = currentDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                dayPeriodElement.title = tooltipDate; // Set tooltip text
+
                 // Compare currentDate to "today" for color-coding
                 const today = new Date();
 

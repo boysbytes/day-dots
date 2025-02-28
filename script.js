@@ -57,6 +57,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 dayTitleElement.classList.add('day-title');
                 dayTitleElement.textContent = dayDetails.title;
                 dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
+
+                // Add tooltip with formatted date to day-title elements
+                const tooltipDate = currentDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                dayTitleElement.title = tooltipDate; // Set tooltip text
+
+
                 daysContainer.appendChild(dayTitleElement);
             } else {
                 // Otherwise, show a period symbol
@@ -113,16 +123,10 @@ document.addEventListener('DOMContentLoaded', function() {
         dateElement.textContent = formattedDate;
         popupContent.appendChild(dateElement);
 
-        // Show the day's text content
-        // const textContentElement = document.createElement('p');
-        // textContentElement.textContent = dayDetails.content;
-        // popupContent.appendChild(textContentElement);
-
         // Convert Markdown to HTML
         const textContentElement = document.createElement('div');
         textContentElement.innerHTML = marked.parse(dayDetails.content);
         popupContent.appendChild(textContentElement);
-
 
         // If there are images, add them
         if (dayDetails.images && Array.isArray(dayDetails.images)) {

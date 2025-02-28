@@ -35,30 +35,33 @@ header a:hover {
 
 
 .container {
-    display: flex; /* Use flexbox layout */
-    flex-wrap: wrap; /* Enable wrapping to the next line */
-    align-items: center;
-    gap: 10px; /* Space between period symbols */
+    display: grid; /* Use CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(32px, 1fr)); /*  Dynamic column sizing */
+    grid-auto-rows: minmax(32px, auto);
+    gap: 10px;
     padding: 20px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 12pt; /* Font size 10pt */
-    max-width: 960px; /* Optional: limit container width for larger screens */
-    margin: 0 auto; /* Center the container on the page */
-    line-height: 1.5; /* Adjust line-height for vertical spacing */
+    font-size: 12pt;
+    max-width: 960px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.day-item {
+    display: flex; /* Day Items become flex containers */
+    align-items: center;
+    justify-content: center; /* Center content */
+    height: 32px; /* Ensure consistent height for all day items */
+    /* Other styles */
 }
 
 .day-period {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;               /* or 48px if you need more room */
-    height: 32px;
+    width: 32px; /* Width */
     font-size: 20px;
-    /* line-height: 1; */
     transform-origin: center;
     vertical-align: middle;
     cursor: pointer;
-  }
+}
   
 .day-period.past {
     color: #6A8C65;
@@ -96,11 +99,11 @@ header a:hover {
     text-align: center;
     cursor: pointer;
     border-radius: 5px; /* Optional: rounded corners for title box */
-    display: flex;
-    align-items: center;
-    white-space: nowrap; /* Prevent title text from wrapping within the box */
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font */
     vertical-align: middle; /* Align title boxes vertically in the middle */
+    white-space: nowrap;
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if overflow */
 }
 
 

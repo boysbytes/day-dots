@@ -52,53 +52,51 @@ document.addEventListener('DOMContentLoaded', function () {
     const dates = Object.keys(daysData);
 
     if (dates.length > 0) {
-      const sortedDates = dates.sort();
-      startDate = new Date(sortedDates[0]);
-      const lastDate = new Date(sortedDates[sortedDates.length - 1]);
-      endDate = new Date(lastDate);
-      endDate.setFullYear(lastDate.getFullYear() + 1);
+        const sortedDates = dates.sort();
+        startDate = new Date(sortedDates[0]);
+        const lastDate = new Date(sortedDates[sortedDates.length - 1]);
+        endDate = new Date(lastDate);
+        endDate.setFullYear(lastDate.getFullYear() + 1);
     } else {
-      startDate = new Date(new Date().getFullYear(), 0, 1);
-      endDate = new Date();
+        startDate = new Date(new Date().getFullYear(), 0, 1);
+        endDate = new Date();
     }
 
     console.log('Start Date:', startDate);
     console.log('End Date:', endDate);
 
     const dayDiff = Math.ceil(
-      (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24)
+        (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24)
     );
 
     for (let i = 0; i <= dayDiff; i++) {
-      const currentDate = new Date(startDate.getTime() + i * 86400000);
-      const dateKey = formatDate(currentDate);
-      const dayDetails = daysData[dateKey];
-
-      if (dayDetails) {
-        const dayTitleElement = document.createElement('div');
-        dayTitleElement.classList.add('day-title');
-        dayTitleElement.textContent = dayDetails.title;
-        dayTitleElement.addEventListener('click', () =>
-          openPopup(dateKey, dayDetails)
-        );
-        daysContainer.appendChild(dayTitleElement);
-      } else {
-        const dayPeriodElement = document.createElement('div');
-        dayPeriodElement.classList.add('day-period');
-        dayPeriodElement.textContent = '•';
-
-        const today = new Date();
-        if (currentDate.toDateString() === today.toDateString()) {
-          dayPeriodElement.classList.add('today');
-        } else if (currentDate > today) {
-          dayPeriodElement.classList.add('future');
+        const currentDate = new Date(startDate.getTime() + i * 86400000);
+        const dateKey = formatDate(currentDate);
+        const dayDetails = daysData[dateKey];
+        const dayElement = document.createElement('div');
+        dayElement.classList.add('day-item');
+        if (dayDetails) {
+            dayElement.classList.add('day-title');
+            dayElement.textContent = dayDetails.title;
+            dayElement.addEventListener('click', () =>
+                openPopup(dateKey, dayDetails)
+            );
         } else {
-          dayPeriodElement.classList.add('past');
+            dayElement.classList.add('day-period');
+            dayElement.textContent = '•';
+
+            const today = new Date();
+            if (currentDate.toDateString() === today.toDateString()) {
+                dayElement.classList.add('today');
+            } else if (currentDate > today) {
+                dayElement.classList.add('future');
+            } else {
+                dayElement.classList.add('past');
+            }
         }
-        daysContainer.appendChild(dayPeriodElement);
-      }
+        daysContainer.appendChild(dayElement);
     }
-  };
+};
 
   // --- Event Listeners ---
   closePopup.onclick = () => {

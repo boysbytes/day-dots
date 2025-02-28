@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const daysContainer = document.getElementById('daysContainer');
     const dayPopup = document.getElementById('dayPopup');
     const popupTitle = document.getElementById('popupTitle');
@@ -44,39 +44,49 @@ document.addEventListener('DOMContentLoaded', function() {
         const timeDiff = endDate.getTime() - startDate.getTime();
         const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
+        const allDays = [];
+        let currentColumn = 1; // Track the current column for placing the dots
+
         // Generate a day element for each date in the range
         for (let i = 0; i <= dayDiff; i++) {
             // Increment by exactly 24 hours per day
             const currentDate = new Date(startDate.getTime() + i * 86400000);
             const dateKey = formatDate(currentDate);
             const dayDetails = daysData[dateKey];
+            const dayElement = document.createElement('div');
+            dayElement.classList.add('day-item');
+            dayElement.dataset.date = dateKey; // Store the date in a data attribute for later use
 
             if (dayDetails) {
                 // If there's an entry for this date, show a clickable title
-                const dayTitleElement = document.createElement('div');
-                dayTitleElement.classList.add('day-title');
-                dayTitleElement.textContent = dayDetails.title;
-                dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
-                daysContainer.appendChild(dayTitleElement);
+                dayElement.classList.add('day-title');
+                dayElement.textContent = dayDetails.title;
+                dayElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
             } else {
                 // Otherwise, show a period symbol
-                const dayPeriodElement = document.createElement('div');
-                dayPeriodElement.classList.add('day-period');
-                dayPeriodElement.textContent = '•';
+                dayElement.classList.add('day-period');
+                dayElement.textContent = '•';
+                dayElement.style.gridColumnStart = currentColumn;
 
                 // Compare currentDate to "today" for color-coding
                 const today = new Date();
 
                 // Convert both dates to strings to avoid time zone edge cases
                 if (currentDate.toDateString() === today.toDateString()) {
-                    dayPeriodElement.classList.add('today');
+                    dayElement.classList.add('today');
                 } else if (currentDate > today) {
-                    dayPeriodElement.classList.add('future');
+                    dayElement.classList.add('future');
                 } else {
-                    dayPeriodElement.classList.add('past');
+                    dayElement.classList.add('past');
                 }
-
-                daysContainer.appendChild(dayPeriodElement);
+                currentColumn++;
+            }
+            allDays.push(dayElement);
+            daysContainer.appendChild(dayElement);
+            if (dayDetails) {
+                const newColumns = Math.ceil(dayElement.scrollWidth / 32);
+                dayElement.style.gridColumn = `span ${newColumns}`;
+                currentColumn += newColumns;
             }
         }
     }
@@ -105,11 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
         dateElement.textContent = formattedDate;
         popupContent.appendChild(dateElement);
 
-        // Show the day's text content
-        // const textContentElement = document.createElement('p');
-        // textContentElement.textContent = dayDetails.content;
-        // popupContent.appendChild(textContentElement);
-
         // Convert Markdown to HTML
         const textContentElement = document.createElement('div');
         textContentElement.innerHTML = marked.parse(dayDetails.content);
@@ -131,12 +136,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Close the popup when clicking the close button
-    closePopup.onclick = function() {
+    closePopup.onclick = function () {
         dayPopup.style.display = "none";
     };
 
     // Close the popup if user clicks outside the popup content
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === dayPopup) {
             dayPopup.style.display = "none";
         }

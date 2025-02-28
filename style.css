@@ -186,3 +186,28 @@ footer {
     width: 100%;
     font-family: 'DM Sans', sans-serif; /* Use DM Sans font for footer */
 }
+
+/* Make scrollbars thinner and more subtle for WebKit browsers */
+::-webkit-scrollbar {
+    width: 8px; /* Adjust the width to make it thinner */
+    height: 8px; /* For horizontal scrollbars if you have them */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light grey background for the track */
+    border-radius: 10px; /* Optional: rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c8c8c8; /* Grey color for the thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0; /* Darker grey on hover */
+}
+
+body {
+    /* ... other body styles ... */
+    overflow: overlay; /* Use overlay scrollbars */
+}

@@ -17,74 +17,69 @@ document.addEventListener('DOMContentLoaded', function() {
             generateDays({});
         });
 
-        function generateDays(daysData) {
-            let startDate, endDate;
-            const dates = Object.keys(daysData);
-            let previousMonth = null;
-            let monthWrapper = null;
-        
-            if (dates.length > 0) {
-                const sortedDates = dates.sort();
-                startDate = new Date(sortedDates[0]);
-                const lastDate = new Date(sortedDates[sortedDates.length - 1]);
-                endDate = new Date(lastDate);
-                endDate.setFullYear(lastDate.getFullYear() + 1);
+    function generateDays(daysData) {
+        // Determine start and end dates based on JSON entries
+        let startDate, endDate;
+        const dates = Object.keys(daysData);
+
+        if (dates.length > 0) {
+            // Sort date keys (ISO format sorts chronologically as strings)
+            const sortedDates = dates.sort();
+            startDate = new Date(sortedDates[0]); // earliest date
+            const lastDate = new Date(sortedDates[sortedDates.length - 1]);
+
+            // endDate = one year after the last date in daysData
+            endDate = new Date(lastDate);
+            endDate.setFullYear(lastDate.getFullYear() + 1);
+        } else {
+            // If no data, default to current year start -> today
+            startDate = new Date(new Date().getFullYear(), 0, 1);
+            endDate = new Date();
+        }
+
+        console.log("Start Date:", startDate);
+        console.log("End Date:", endDate);
+
+        // Calculate total days between startDate and endDate
+        const timeDiff = endDate.getTime() - startDate.getTime();
+        const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+        // Generate a day element for each date in the range
+        for (let i = 0; i <= dayDiff; i++) {
+            // Increment by exactly 24 hours per day
+            const currentDate = new Date(startDate.getTime() + i * 86400000);
+            const dateKey = formatDate(currentDate);
+            const dayDetails = daysData[dateKey];
+
+            if (dayDetails) {
+                // If there's an entry for this date, show a clickable title
+                const dayTitleElement = document.createElement('div');
+                dayTitleElement.classList.add('day-title');
+                dayTitleElement.textContent = dayDetails.title;
+                dayTitleElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
+                daysContainer.appendChild(dayTitleElement);
             } else {
-                startDate = new Date(new Date().getFullYear(), 0, 1);
-                endDate = new Date();
-            }
-        
-            const timeDiff = endDate.getTime() - startDate.getTime();
-            const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-        
-            for (let i = 0; i <= dayDiff; i++) {
-                const currentDate = new Date(startDate.getTime() + i * 86400000);
-                const dateKey = formatDate(currentDate);
-                const dayDetails = daysData[dateKey];
-        
-                const currentMonth = currentDate.toLocaleString('en-US', { month: 'long', year: 'numeric' });
-        
-                // Create a new month wrapper if a new month starts
-                if (previousMonth !== currentMonth) {
-                    previousMonth = currentMonth;
-        
-                    // Create a wrapper div for the month
-                    monthWrapper = document.createElement('div');
-                    monthWrapper.classList.add('month-wrapper');
-                    daysContainer.appendChild(monthWrapper);
-        
-                    // Create the month label inside the wrapper
-                    const monthLabel = document.createElement('div');
-                    monthLabel.classList.add('month-label');
-                    monthLabel.textContent = currentMonth;
-                    monthWrapper.appendChild(monthLabel);
-                }
-        
-                // Create the day element and append it to the current month wrapper
-                const dayElement = document.createElement('div');
-        
-                if (dayDetails) {
-                    dayElement.classList.add('day-title');
-                    dayElement.textContent = dayDetails.title;
-                    dayElement.addEventListener('click', () => openPopup(dateKey, dayDetails));
+                // Otherwise, show a period symbol
+                const dayPeriodElement = document.createElement('div');
+                dayPeriodElement.classList.add('day-period');
+                dayPeriodElement.textContent = '•';
+
+                // Compare currentDate to "today" for color-coding
+                const today = new Date();
+
+                // Convert both dates to strings to avoid time zone edge cases
+                if (currentDate.toDateString() === today.toDateString()) {
+                    dayPeriodElement.classList.add('today');
+                } else if (currentDate > today) {
+                    dayPeriodElement.classList.add('future');
                 } else {
-                    dayElement.classList.add('day-period');
-                    dayElement.textContent = '•';
-        
-                    const today = new Date();
-                    if (currentDate.toDateString() === today.toDateString()) {
-                        dayElement.classList.add('today');
-                    } else if (currentDate > today) {
-                        dayElement.classList.add('future');
-                    } else {
-                        dayElement.classList.add('past');
-                    }
+                    dayPeriodElement.classList.add('past');
                 }
-        
-                monthWrapper.appendChild(dayElement);
+
+                daysContainer.appendChild(dayPeriodElement);
             }
         }
-        
+    }
 
     // Format a Date object as YYYY-MM-DD
     function formatDate(date) {

@@ -211,3 +211,46 @@ body {
     /* ... other body styles ... */
     overflow: overlay; /* Use overlay scrollbars */
 }
+
+/* Media query for mobile devices (screen width less than 768px) */
+@media screen and (max-width: 768px) {
+
+    .container {
+        font-size: 10pt; /* Example: Reduce container font size on mobile */
+        padding: 15px; /* Adjust padding if needed for smaller screens */
+        gap: 8px; /* Adjust gap between dots/boxes */
+    }
+
+    .day-title {
+        padding: 8px; /* Adjust padding for title boxes on mobile */
+        font-size: 11pt; /* Slightly smaller title font on mobile */
+    }
+
+    .day-period {
+        width: 24px;  /* Smaller dot size */
+        height: 24px;
+        font-size: 16px; /* Smaller dot font size */
+    }
+
+    header h1 {
+        font-size: 24pt; /* Smaller header title on mobile */
+    }
+
+    header p {
+        font-size: 12pt; /* Smaller header paragraph on mobile */
+    }
+
+    .popup-content {
+        width: 95%; /* Make popup wider on smaller screens */
+        margin: 20% auto; /* Adjust popup margin */
+        padding: 15px; /* Adjust popup content padding */
+    }
+
+    .popup-content h2,
+    .popup-content h3,
+    .popup-content p,
+    .close-button,
+    #popupTitle {
+        font-size: 11pt; /* Adjust font sizes within the popup */
+    }
+}

@@ -4,9 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const popupTitle = document.getElementById('popupTitle');
     const popupContent = document.getElementById('popupContent');
     const closePopup = document.getElementById('closePopup');
-    const monthYearIndicator = document.createElement('div'); // Create month/year indicator
-    monthYearIndicator.classList.add('month-year-indicator'); // Add class for styling
-    document.body.appendChild(monthYearIndicator); // Append to body
 
     // Fetch and process data from days.json
     fetch('days.json')
@@ -54,11 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const dateKey = formatDate(currentDate);
             const dayDetails = daysData[dateKey];
 
-            // Update month/year indicator during generation
-            const monthYear = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
-            if (monthYear !== currentMonthYear) {
-                currentMonthYear = monthYear;
-            }
 
             if (dayDetails) {
                 // If there's an entry for this date, show a clickable title
@@ -105,16 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 daysContainer.appendChild(dayPeriodElement);
             }
-        }
-    
-
-        // Scroll to current date after generating all days
-        if (currentDateElement) {
-            currentDateElement.scrollIntoView({
-                behavior: 'auto', // or 'instant' for no animation
-                block: 'end',    // or 'center', 'start', 'nearest'
-                inline: 'nearest' // or 'center', 'start', 'end'
-            });
         }
     }
 
@@ -172,27 +154,4 @@ document.addEventListener('DOMContentLoaded', function() {
             dayPopup.style.display = "none";
         }
     };
-
-
-    let currentDateElement = null; // To store the element representing today's date
-
-    // --- Month/Year Indicator Scroll Logic ---
-    daysContainer.addEventListener('scroll', () => {
-        let visibleMonthYear = null;
-        const dayElements = daysContainer.querySelectorAll('.day-title, .day-period');
-        const containerRect = daysContainer.getBoundingClientRect();
-
-        for (const dayElement of dayElements) {
-            const elementRect = dayElement.getBoundingClientRect();
-            if (elementRect.top >= containerRect.top && elementRect.bottom <= containerRect.bottom) {
-                const tooltipText = dayElement.title; // Tooltip contains "Month Day, Year"
-                const dateParts = tooltipText.split(', ');
-                visibleMonthYear = dateParts[0]; // "Month Year"
-                break; // Take the first visible month/year
-            }
-        }
-        monthYearIndicator.textContent = visibleMonthYear || ''; // Update indicator text
-    });
-    // Initialize the month/year indicator on page load
-    daysContainer.dispatchEvent(new Event('scroll'));
 });

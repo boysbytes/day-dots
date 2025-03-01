@@ -103,6 +103,19 @@ header a:hover {
     vertical-align: middle; /* Align title boxes vertically in the middle */
 }
 
+.month-year-indicator {
+    position: fixed;
+    top: 50%; /* Keep vertical centering */
+    right: 10px; /* Adjust right position to accommodate vertical text */
+    transform: translateY(-50%) rotate(90deg); /* Rotate 90 degrees clockwise */
+    transform-origin: center right; /* Set the origin for rotation to the right edge */
+    font-size: 14pt;
+    font-family: 'Corben', serif;
+    color: #6A8C65;
+    opacity: 0.8;
+    pointer-events: none;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
 
 .popup {
     display: none; /* Hidden by default */
@@ -230,6 +243,11 @@ body {
         width: 24px;  /* Smaller dot size */
         height: 24px;
         font-size: 16px; /* Smaller dot font size */
+    }
+
+    .month-year-indicator {
+        font-size: 12pt;
+        right: 5px; /* Adjust right position on mobile */
     }
 
     header h1 {

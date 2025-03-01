@@ -153,4 +153,27 @@ document.addEventListener('DOMContentLoaded', function() {
             dayPopup.style.display = "none";
         }
     };
+
+
+    let currentDateElement = null; // To store the element representing today's date
+
+    // --- Month/Year Indicator Scroll Logic ---
+    daysContainer.addEventListener('scroll', () => {
+        let visibleMonthYear = null;
+        const dayElements = daysContainer.querySelectorAll('.day-title, .day-period');
+        const containerRect = daysContainer.getBoundingClientRect();
+
+        for (const dayElement of dayElements) {
+            const elementRect = dayElement.getBoundingClientRect();
+            if (elementRect.top >= containerRect.top && elementRect.bottom <= containerRect.bottom) {
+                const tooltipText = dayElement.title; // Tooltip contains "Month Day, Year"
+                const dateParts = tooltipText.split(', ');
+                visibleMonthYear = dateParts[0]; // "Month Year"
+                break; // Take the first visible month/year
+            }
+        }
+        monthYearIndicator.textContent = visibleMonthYear || ''; // Update indicator text
+    });
+    // Initialize the month/year indicator on page load
+    daysContainer.dispatchEvent(new Event('scroll'));
 });

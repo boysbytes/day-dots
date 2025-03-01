@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const popupTitle = document.getElementById('popupTitle');
     const popupContent = document.getElementById('popupContent');
     const closePopup = document.getElementById('closePopup');
+    const monthYearIndicator = document.createElement('div'); // Create month/year indicator
+    monthYearIndicator.classList.add('month-year-indicator'); // Add class for styling
+    document.body.appendChild(monthYearIndicator); // Append to body
 
     // Fetch and process data from days.json
     fetch('days.json')
@@ -51,6 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const dateKey = formatDate(currentDate);
             const dayDetails = daysData[dateKey];
 
+            // Update month/year indicator during generation
+            const monthYear = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+            if (monthYear !== currentMonthYear) {
+                currentMonthYear = monthYear;
+            }
+
             if (dayDetails) {
                 // If there's an entry for this date, show a clickable title
                 const dayTitleElement = document.createElement('div');
@@ -96,6 +105,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 daysContainer.appendChild(dayPeriodElement);
             }
+        }
+    
+
+        // Scroll to current date after generating all days
+        if (currentDateElement) {
+            currentDateElement.scrollIntoView({
+                behavior: 'auto', // or 'instant' for no animation
+                block: 'end',    // or 'center', 'start', 'nearest'
+                inline: 'nearest' // or 'center', 'start', 'end'
+            });
         }
     }
 

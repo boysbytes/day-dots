@@ -92,7 +92,7 @@ header a:hover {
 
 .day-title {
     background-color: #A4D99C; /* Shade of color for title box */
-    padding: 10px; /* Adjust padding for title box */
+    padding: 5px; /* Adjust padding for title box */
     text-align: center;
     cursor: pointer;
     border-radius: 5px; /* Optional: rounded corners for title box */
@@ -222,8 +222,8 @@ body {
     }
 
     .day-title {
-        padding: 8px; /* Adjust padding for title boxes on mobile */
-        font-size: 11pt; /* Slightly smaller title font on mobile */
+        padding: 3px; /* Adjust padding for title boxes on mobile */
+        font-size: 10pt; /* Slightly smaller title font on mobile */
     }
 
     .day-period {

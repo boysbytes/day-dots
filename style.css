@@ -38,7 +38,7 @@ header a:hover {
     display: flex; /* Use flexbox layout */
     flex-wrap: wrap; /* Enable wrapping to the next line */
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Space between elements might get weird */
     gap: 10px; /* Space between period symbols */
     padding: 20px;
     font-family: 'DM Sans', sans-serif;

@@ -16,5 +16,9 @@
         "title": "📷Instant cameras are fun",
         "content": "Especially cameras with thermal printers (because they're cheap).",
         "images": ["2025-03-01.jpg"]
+    },
+    "2025-03-03": {
+        "title": "Endings",
+        "content": "I found another use for AI: checking if a movie has a happy ending.  Almost watched **The Butterfly Effect**. That was a close one."
     }
 }

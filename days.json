@@ -28,5 +28,10 @@
     "2025-03-13": {
         "title": "Big plans",
         "content": "Sometimes I get asked if I have any big plans on the weekend. Well, I do! I spend my weekend with the family."
+    },
+    "2025-03-16": {
+        "title": "📷Beach",
+        "content": "Spent the weekend at Langkawi Island.",
+        "images": ["2025-03-16.jpg"]
     }
 }

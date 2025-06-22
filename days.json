@@ -33,5 +33,10 @@
         "title": "📷Beach",
         "content": "Spent the weekend at Langkawi Island.",
         "images": ["2025-03-16.jpg"]
+    },
+    "2025-06-22": {
+        "title": "AI Decides",
+        "content": "An article about [How AI Makes Decisions](https://medium.com/@louis.yong.cc/how-ai-makes-decisions-f69521907484) in Medium.",
+        "images": ["2025-03-16.jpg"]
     }
 }
